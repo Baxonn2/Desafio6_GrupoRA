@@ -4,13 +4,15 @@ from src.grapher import Grapher
 
 import sys, getopt
 
+QUADTREE_ALGORITHM = "quadtree"
+DYNAMIC_GRID_ALGORITHM = "dynamic_grid"
 
 def main(entities, infected, masks, quarantine, instance=None):
 
     if instance is not None:
         load.load_parameters(instance)
 
-    grapher = Grapher(algorithm="quadtree",quarantine_enabled=quarantine)
+    grapher = Grapher(algorithm=DYNAMIC_GRID_ALGORITHM,quarantine_enabled=quarantine)
 
     # Agregando entidad infectada
     # Total, enfermos, probabilidad de usar mascarilla, cuarentena
@@ -22,9 +24,9 @@ def main(entities, infected, masks, quarantine, instance=None):
 
 def main_wrapper(argv):
     seed = 42
-    entities = 1000
+    entities = 10
     face_masks = 0
-    infected = 5
+    infected = 0
     quarantine = False
     instance = None
 

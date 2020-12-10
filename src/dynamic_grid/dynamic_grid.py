@@ -78,11 +78,7 @@ class DynamicGrid:
     def draw(self, screen, color):
         for cell_row in self.__grid:
             for cell in cell_row:
-                x = cell.x1
-                y = cell.y1
-                w = cell.x2 - x
-                h = cell.y2 - y
-                pygame.draw.rect(screen, color, (x, y, w, h), 1)
+                cell.draw(screen)
 
     def get(self, x, y, param):
         # TODO: programar esta funcion
